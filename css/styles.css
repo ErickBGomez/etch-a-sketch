@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #272727;
+    height: 100vh;
+    margin: 0;
+
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 300;
+    font-size: 1.15em;
+    text-align: center;
+}
+
+.sections {
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 150px 1fr 50px;
+    align-items: center;
+}
+
+/* Painting area */
+
+#paint-container {
+    width: 750px;
+    height: 750px;
+    border: 3px solid #7e7e7e;
+    background-color: white;
+    margin: 0 auto;
+
+    display: grid;
+}
+
+.pixel {
+    border: 1px solid black;
+}
+
+/* Footer */
+
+.author-link {
+    color: #1fc564;
+    text-decoration: none;
+    font-weight: 700;
+}
