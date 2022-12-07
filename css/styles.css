@@ -61,14 +61,14 @@ p {
     padding: 15px;
 }
 
+/* Painting group grid items */
+
 .tools-options {
     grid-column: 2;
 }
 
 .tools {
     grid-row: 2;
-
-
 }
 
 .colors {
@@ -102,6 +102,31 @@ p {
 
 .pixel {
     border: 1px solid black;
+}
+
+/* Tools buttons */
+
+.tools button {
+    display: block;
+    padding: 0;
+    width: 75px;
+    height: 75px;
+
+    background-color: var(--white-accent);
+    border: none;
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+
+    transition: 200ms;
+}
+
+/* Change this later to "Selected button" */
+.tools button:hover {
+    background-color: var(--primary-accent);
+    scale: 1.1;
+
+    transition: 200ms;
 }
 
 /* Footer */
