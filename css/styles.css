@@ -52,6 +52,7 @@ p {
     grid-template-rows: repeat(4, auto);
 
     justify-content: center;
+    align-items: start;
     gap: 30px 40px;
 }
 
@@ -116,9 +117,11 @@ p {
     border: none;
     border-radius: 10px;
 
-    margin-bottom: 10px;
-
     transition: 200ms;
+}
+
+.tools button:not(:last-of-type) {
+    margin-bottom: 10px;
 }
 
 /* Change this later to "Selected button" */
