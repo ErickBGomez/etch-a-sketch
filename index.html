@@ -25,13 +25,23 @@
             
             <div class="tools group-background">
                 <!-- Change button icons to SVGs -->
-                <button class="pencil-button">✏️</button>
-                <button class="eraser-button">⏹️</button>
-                <button class="color-picker-button">💉</button>
+                <button class="pencil-button pointer-mouse">✏️</button>
+                <button class="eraser-button pointer-mouse">⏹️</button>
+                <button class="color-picker-button pointer-mouse">💉</button>
             </div>
 
             <div id="paint-container"></div>
-            <div class="colors group-background">COLORS</div>
+            
+            <div class="colors group-background">
+                <input type="color" class="color-input pointer-mouse" value="#000000">
+                <input type="text" class="hex-color-input" value="#000000">
+                
+                <div class="color-history-group">
+                    <div id="color-history-1" class="pointer-mouse"></div>
+                    <div id="color-history-2" class="pointer-mouse"></div>
+                    <div id="color-history-3" class="pointer-mouse"></div>
+                </div>
+            </div>
             
             <div class="clear-grid">C G</div>
             <div class="show-grid">S G</div>

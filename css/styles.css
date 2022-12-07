@@ -1,3 +1,5 @@
+/* General styling */
+
 * {
     box-sizing: border-box;
 }
@@ -6,13 +8,13 @@
     --primary-accent: #3BB0F2;
     --white-accent: #E7E7E7;
 
-    --black-background: #2B2B2B;
-    --group-black-background: #3E3E3E;
-
+    --main-background: #2B2B2B;
+    --group-background: #3E3E3E;
+    --input-background: #242424;
 }
 
 body {
-    background-color: var(--black-background);
+    background-color: var(--main-background);
     margin: 0;
 
     font-family: 'Roboto', sans-serif;
@@ -30,8 +32,6 @@ body {
     align-items: center;
 }
 
-/* Header */
-
 h1 {
     margin-top: 30px;
     margin-bottom: 0;
@@ -41,6 +41,24 @@ h1 {
 p {
     margin: 0;
     font-size: 1em;
+}
+
+input[type="text"] {
+    background-color: var(--input-background);
+    border: none;
+    border-radius: 7px;
+    color: var(--white-accent);
+    text-align: center;
+    font-size: 1em;
+}
+
+.pointer-mouse {
+    transition: 200ms;
+}
+
+.pointer-mouse:hover {
+    cursor: pointer;
+    transition: 200ms;
 }
 
 /* Painting area */
@@ -57,7 +75,7 @@ p {
 }
 
 .group-background {
-    background-color: var(--group-black-background);
+    background-color: var(--group-background);
     border-radius: 12px;
     padding: 15px;
 }
@@ -68,13 +86,80 @@ p {
     grid-column: 2;
 }
 
+/* Tools group and buttons */
+
 .tools {
     grid-row: 2;
 }
 
+.tools button {
+    display: block;
+    padding: 0;
+    width: 75px;
+    height: 75px;
+
+    background-color: var(--white-accent);
+    border: none;
+    border-radius: 10px;
+}
+
+.tools button:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+
+/* Color group */
+
 .colors {
     grid-column: 3;
     grid-row: 2;
+}
+
+.colors input {
+    display: block;
+}
+
+/* Test this compatibility with other browsers */
+.color-input {
+    width: 125px;
+    height: 125px;
+
+    background-color: rgba(0,0,0,0);
+    -webkit-appearance: none;
+    border: none;
+}
+
+.color-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-input::-webkit-color-swatch {
+    border: none;
+}
+
+.hex-color-input {
+    width: 125px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.color-history-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color-history-group div {
+    background-color: white;
+
+    width: 32px;
+    height: 32px;
+}
+
+.color-input:hover {
+    scale: 1.07;
+}
+
+.color-history-group div:hover {
+    scale: 1.2;
 }
 
 .clear-grid {
@@ -103,25 +188,6 @@ p {
 
 .pixel {
     border: 1px solid black;
-}
-
-/* Tools buttons */
-
-.tools button {
-    display: block;
-    padding: 0;
-    width: 75px;
-    height: 75px;
-
-    background-color: var(--white-accent);
-    border: none;
-    border-radius: 10px;
-
-    transition: 200ms;
-}
-
-.tools button:not(:last-of-type) {
-    margin-bottom: 10px;
 }
 
 /* Change this later to "Selected button" */
