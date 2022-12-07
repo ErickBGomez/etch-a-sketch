@@ -48,7 +48,7 @@ p {
 .painting-group {
     display: grid;
 
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(4, auto);
 
     justify-content: center;
@@ -57,6 +57,8 @@ p {
 
 .group-background {
     background-color: var(--group-black-background);
+    border-radius: 12px;
+    padding: 15px;
 }
 
 .tools-options {
@@ -65,6 +67,8 @@ p {
 
 .tools {
     grid-row: 2;
+
+
 }
 
 .colors {
