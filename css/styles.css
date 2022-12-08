@@ -5,9 +5,12 @@
 }
 
 :root {
-    --primary-accent: #3BB0F2;
     --white-accent: #E7E7E7;
+
+    --primary-accent: #3BB0F2;
     --hover-accent: #98d6fa;
+    --danger-accent: #f73030;
+    --hover-danger-accent: #ec6f6f;
 
     --main-background: #2B2B2B;
     --group-background: #3E3E3E;
@@ -102,9 +105,17 @@ button {
 }
 
 /* Change this later to "Selected button" */
+.tool-button:hover,
+.tool-button[data-state="selected"] {
+    scale: 1.1;
+}
+
 .tool-button:hover {
     background-color: var(--hover-accent);
-    scale: 1.1;
+}
+
+.tool-button[data-state="selected"] {
+    background-color: var(--primary-accent);
 }
 
 .tool-button:not(:last-of-type) {
@@ -185,9 +196,25 @@ button {
     background: none;
 }
 
-.option-button:hover {
+.option-button:hover,
+.option-button[data-state="selected"] {
     scale: 1.2;
+}
+
+#show-grid.option-button:hover {
     color: var(--hover-accent);
+}
+
+#show-grid.option-button[data-state="selected"] {
+    color: var(--primary-accent);
+}
+
+#clear-grid.option-button:hover {
+    color: var(--hover-danger-accent);
+}
+
+#clear-grid.option-button[data-state="selected"] {
+    color: var(--danger-accent);
 }
 
 .option-button:not(:last-of-type) {

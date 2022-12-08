@@ -23,11 +23,11 @@
         <main class="painting-group">            
             <div class="tools group-background">
                 <!-- Change button icons to SVGs -->
-                <button id="pencil" class="tool-button pointer-mouse">✏️</button>
-                <button id="rainbow" class="tool-button pointer-mouse">🏳️‍🌈</button>
-                <button id="shading" class="tool-button pointer-mouse">🕶️</button>
-                <button id="eraser" class="tool-button pointer-mouse">⏹️</button>
-                <button id="color-picker" class="tool-button pointer-mouse">💉</button>
+                <button id="pencil" class="tool-button pointer-mouse" data-state="selected">✏️</button>
+                <button id="rainbow" class="tool-button pointer-mouse" data-state="unselected">🏳️‍🌈</button>
+                <button id="shading" class="tool-button pointer-mouse" data-state="unselected">🕶️</button>
+                <button id="eraser" class="tool-button pointer-mouse" data-state="unselected">⏹️</button>
+                <button id="color-picker" class="tool-button pointer-mouse" data-state="unselected">💉</button>
             </div>
 
             <div id="canvas"></div>
@@ -44,8 +44,8 @@
             </div>
             
             <div class="other-options">
-                <button id="clear-grid" class="option-button pointer-mouse">C G</button>
-                <button id="show-grid" class="option-button pointer-mouse">S G</button>
+                <button id="show-grid" class="option-button pointer-mouse" data-state="selected">S G</button>
+                <button id="clear-grid" class="option-button pointer-mouse" data-state="unselected">C G</button>
             </div>
     
             <div class="grid-size">
