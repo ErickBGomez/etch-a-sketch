@@ -7,7 +7,7 @@
 :root {
     --primary-accent: #3BB0F2;
     --white-accent: #E7E7E7;
-    --hover-accent: #b6b6b6;
+    --hover-accent: #98d6fa;
 
     --main-background: #2B2B2B;
     --group-background: #3E3E3E;
@@ -68,7 +68,7 @@ input[type="text"] {
     display: grid;
 
     grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
 
     justify-content: center;
     align-items: start;
@@ -81,16 +81,10 @@ input[type="text"] {
     padding: 15px;
 }
 
-/* Painting group grid items */
-
-.tools-options {
-    grid-column: 2;
-}
-
 /* Tools group and buttons */
 
 .tools {
-    grid-row: 2;
+    grid-row: 1;
 }
 
 .tools button {
@@ -118,7 +112,7 @@ input[type="text"] {
 
 .colors {
     grid-column: 3;
-    grid-row: 2;
+    grid-row: 1;
 }
 
 .colors input {
@@ -146,8 +140,8 @@ input[type="text"] {
 
 .hex-color-input {
     width: 125px;
-    padding: 10px;
     margin: 10px 0;
+    padding: 10px;
 }
 
 .color-history-group {
@@ -173,12 +167,12 @@ input[type="text"] {
 /* Other options */
 
 .clear-grid {
-    grid-row: 3;
+    grid-row: 2;
 }
 
 .show-grid {
     grid-column: 3;
-    grid-row: 3;
+    grid-row: 2;
 }
 
 .clear-grid,
@@ -190,7 +184,7 @@ input[type="text"] {
 
 .grid-size {
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 3;
 }
 
 .grid-size-label {
@@ -243,7 +237,7 @@ input[type="text"] {
 
     display: grid;
 
-    grid-area: 2 / 2 / 4 / 3;
+    grid-area: 1 / 2 / 3 / 2;
 }
 
 .pixel {
