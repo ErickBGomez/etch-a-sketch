@@ -7,6 +7,7 @@
 :root {
     --primary-accent: #3BB0F2;
     --white-accent: #E7E7E7;
+    --hover-accent: #b6b6b6;
 
     --main-background: #2B2B2B;
     --group-background: #3E3E3E;
@@ -103,6 +104,12 @@ input[type="text"] {
     border-radius: 10px;
 }
 
+/* Change this later to "Selected button" */
+.tools button:hover {
+    background-color: var(--hover-accent);
+    scale: 1.1;
+}
+
 .tools button:not(:last-of-type) {
     margin-bottom: 10px;
 }
@@ -125,6 +132,7 @@ input[type="text"] {
 
     background-color: rgba(0,0,0,0);
     -webkit-appearance: none;
+    appearance: none;
     border: none;
 }
 
@@ -162,6 +170,8 @@ input[type="text"] {
     scale: 1.2;
 }
 
+/* Other options */
+
 .clear-grid {
     grid-row: 3;
 }
@@ -171,12 +181,62 @@ input[type="text"] {
     grid-row: 3;
 }
 
-.change-grid-size {
+.clear-grid,
+.show-grid {
+    align-self: end;
+}
+
+/* Grid size slider group */
+
+.grid-size {
     grid-column: 2;
     grid-row: 4;
 }
 
-#paint-container {
+.grid-size-label {
+    margin-bottom: 12px;
+}
+
+.grid-size-slider {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 55%;
+    height: 10px;
+    border-radius: 10px;
+    background-color: var(--group-background);
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+
+    background-color: var(--white-accent);
+
+    transition: 200ms;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    scale: 1.2;
+    background-color: var(--hover-accent);
+    transition: 200ms;
+}
+
+.slider::-webkit-slider-thumb:active {
+    background-color: var(--primary-accent);
+}
+
+/* Canvas */
+
+#canvas {
     width: 500px;
     height: 500px;
     background-color: white;
@@ -188,14 +248,6 @@ input[type="text"] {
 
 .pixel {
     border: 1px solid black;
-}
-
-/* Change this later to "Selected button" */
-.tools button:hover {
-    background-color: var(--primary-accent);
-    scale: 1.1;
-
-    transition: 200ms;
 }
 
 /* Footer */

@@ -30,7 +30,7 @@
                 <button class="color-picker-button pointer-mouse">💉</button>
             </div>
 
-            <div id="paint-container"></div>
+            <div id="canvas"></div>
             
             <div class="colors group-background">
                 <input type="color" class="color-input pointer-mouse" value="#000000">
@@ -46,7 +46,12 @@
             <div class="clear-grid">C G</div>
             <div class="show-grid">S G</div>
     
-            <div class="change-grid-size">16 x 16</div>
+            <div class="grid-size">
+                <div class="grid-size-label">16 × 16</div>
+                <div class="grid-size-slider">
+                    <input type="range" min="2" max="64" class="slider pointer-mouse">
+                </div>
+            </div>
         </main>
 
         <footer class="footer-group">
