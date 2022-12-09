@@ -9,8 +9,8 @@
 
     --primary-accent: #3BB0F2;
     --hover-accent: #98d6fa;
-    --danger-accent: #f73030;
-    --hover-danger-accent: #ec6f6f;
+    --danger-accent: #f12222;
+    --hover-danger-accent: #f08686;
 
     --main-background: #2B2B2B;
     --group-background: #3E3E3E;
@@ -210,12 +210,14 @@ button {
     color: var(--primary-accent);
 }
 
-#clear-grid.option-button:hover {
+#clear-canvas.option-button:hover {
     color: var(--hover-danger-accent);
 }
 
-#clear-grid.option-button[data-state="selected"] {
+#clear-canvas.option-button:active {
     color: var(--danger-accent);
+    scale: 1.5;
+    transition: 10ms;
 }
 
 .option-button:not(:last-of-type) {

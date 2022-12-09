@@ -8,6 +8,7 @@ const allTools = document.querySelectorAll("button.tool-button");
 const canvas = document.querySelector("div#canvas");
 
 const showGridButton = document.querySelector("button#show-grid");
+const clearCanvasButton = document.querySelector("button#clear-canvas");
 
 // Other variables
 let currentTool = null;
@@ -25,6 +26,7 @@ allTools.forEach(tool => {
 });
 
 showGridButton.addEventListener("click", toggleGridVisibility);
+clearCanvasButton.addEventListener("click", clearCanvasButtonEvent);
 
 // Functions
 
@@ -66,16 +68,21 @@ function selectTool(newTool) {
     });
 }
 
-function toggleGridVisibility(e) {
-    if (getButtonState(e.target) === "unselected"){
-        setButtonState(e.target, "selected");
+function toggleGridVisibility() {
+    if (getButtonState(showGridButton) === "unselected"){
+        setButtonState(showGridButton, "selected");
 
         canvas.childNodes.forEach(pixel => pixel.classList.add("pixel-border"));
     } else {
-        setButtonState(e.target, "unselected");
+        setButtonState(showGridButton, "unselected");
 
         canvas.childNodes.forEach(pixel => pixel.classList.remove("pixel-border"));
     }
+}
+
+function clearCanvasButtonEvent() {
+    clearCanvas();
+    setCanvasSize(DEFAULT_SIZE); // Change to "actual canvas size"
 }
 
 function setButtonState(button, newState) {
