@@ -17,12 +17,14 @@ setCanvasSize(DEFAULT_SIZE);
 selectTool(DEFAULT_TOOL);
 setButtonState(showGridButton, "unselected");
 
-console.log(canvas.childElementCount);
+console.log(canvas.childElementCount); // Test
 
 // Set Events
 allTools.forEach(tool => {
     tool.addEventListener("click", selectTool);
 });
+
+showGridButton.addEventListener("click", toggleGridVisibility);
 
 // Functions
 
@@ -37,7 +39,6 @@ function setCanvasSize(newSize) {
     for (let i = 0; i < newSize**2; i++) {
         newPixel = document.createElement("div");
         newPixel.classList.add("pixel");
-        newPixel.classList.add("pixel-border");
 
         canvas.appendChild(newPixel);
     }
@@ -65,6 +66,22 @@ function selectTool(newTool) {
     });
 }
 
+function toggleGridVisibility(e) {
+    if (getButtonState(e.target) === "unselected"){
+        setButtonState(e.target, "selected");
+
+        canvas.childNodes.forEach(pixel => pixel.classList.add("pixel-border"));
+    } else {
+        setButtonState(e.target, "unselected");
+
+        canvas.childNodes.forEach(pixel => pixel.classList.remove("pixel-border"));
+    }
+}
+
 function setButtonState(button, newState) {
     button.dataset.state = newState;
+}
+
+function getButtonState(button) {
+    return button.dataset.state;
 }
