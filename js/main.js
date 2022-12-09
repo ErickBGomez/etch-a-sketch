@@ -1,6 +1,7 @@
 // Default settings
 const DEFAULT_TOOL = "pencil";
-const DEFAULT_SIZE = 16;
+const DEFAULT_CANVAS_SIZE = 16;
+const DEFAULT_GRID_VISIBILITY = false;
 
 // Select nodes
 const allTools = document.querySelectorAll("button.tool-button");
@@ -11,12 +12,13 @@ const showGridButton = document.querySelector("button#show-grid");
 const clearCanvasButton = document.querySelector("button#clear-canvas");
 
 // Other variables
-let currentTool = null;
+let currentTool = DEFAULT_TOOL;
+let currentCanvasSize = DEFAULT_CANVAS_SIZE;
+let gridVisibilityState = DEFAULT_GRID_VISIBILITY;
 
 // First loading settings
-setCanvasSize(DEFAULT_SIZE);
-selectTool(DEFAULT_TOOL);
-setButtonState(showGridButton, "unselected");
+resetCanvas();
+selectTool(currentTool);
 
 console.log(canvas.childElementCount); // Test
 
@@ -26,12 +28,17 @@ allTools.forEach(tool => {
 });
 
 showGridButton.addEventListener("click", toggleGridVisibility);
-clearCanvasButton.addEventListener("click", clearCanvasButtonEvent);
+clearCanvasButton.addEventListener("click", resetCanvas);
 
 // Functions
 
-function setCanvasSize(newSize) {
+function resetCanvas() {
     clearCanvas();
+    setCanvasSize(currentCanvasSize); // Change to "actual canvas size"
+    setGridVisibility(gridVisibilityState);
+}
+
+function setCanvasSize(newSize) {
 
     let newPixel = null;
 
@@ -68,8 +75,10 @@ function selectTool(newTool) {
     });
 }
 
-function toggleGridVisibility() {
-    if (getButtonState(showGridButton) === "unselected"){
+function setGridVisibility(state) {
+    gridVisibilityState = state;
+
+    if (state === true) {
         setButtonState(showGridButton, "selected");
 
         canvas.childNodes.forEach(pixel => pixel.classList.add("pixel-border"));
@@ -80,9 +89,9 @@ function toggleGridVisibility() {
     }
 }
 
-function clearCanvasButtonEvent() {
-    clearCanvas();
-    setCanvasSize(DEFAULT_SIZE); // Change to "actual canvas size"
+// Function is defined just for showGridButton
+function toggleGridVisibility() {
+    setGridVisibility(!gridVisibilityState);
 }
 
 function setButtonState(button, newState) {
