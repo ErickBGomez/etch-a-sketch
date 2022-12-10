@@ -49,9 +49,15 @@
             </div>
     
             <div class="grid-size">
-                <div class="grid-size-label">16 × 16</div>
+                <div class="grid-size-label">
+                    <span class="canvas-size-label">#</span>
+                </div>
                 <div class="grid-size-slider">
-                    <input type="range" min="2" max="64" class="slider pointer-mouse" value="16">
+                    <input type="range" min="8" max="64" step="8" id="slider" name="slider" class="pointer-mouse"
+                    oninput="updateCanvasSizeLabel(this.value);"
+                    onchange="resetCanvas(this.value);"
+                    value="8">
+
                 </div>
             </div>
         </main>

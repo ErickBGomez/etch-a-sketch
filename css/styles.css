@@ -239,7 +239,7 @@ button {
     width: 100%;
 }
 
-.slider {
+#slider {
     -webkit-appearance: none;
     appearance: none;
     width: 55%;
@@ -249,7 +249,7 @@ button {
     outline: none;
 }
 
-.slider::-webkit-slider-thumb {
+#slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
 
@@ -262,13 +262,13 @@ button {
     transition: 200ms;
 }
 
-.slider::-webkit-slider-thumb:hover {
+#slider::-webkit-slider-thumb:hover {
     scale: 1.2;
     background-color: var(--hover-accent);
     transition: 200ms;
 }
 
-.slider::-webkit-slider-thumb:active {
+#slider::-webkit-slider-thumb:active {
     background-color: var(--primary-accent);
 }
 

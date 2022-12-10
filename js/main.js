@@ -1,45 +1,46 @@
-// Default settings
-const DEFAULT_TOOL = "pencil";
-const DEFAULT_CANVAS_SIZE = 16;
-const DEFAULT_GRID_VISIBILITY = false;
+// Variables with default settings
+let currentTool = "pencil";
+let currentCanvasSize = 8;
+let gridVisibilityState = true;
 
 // Select nodes
 const allTools = document.querySelectorAll("button.tool-button");
 
 const canvas = document.querySelector("div#canvas");
 
+const canvasSizeLabel = document.querySelector("span.canvas-size-label");
+const canvasSizeSlider = document.querySelector("input#slider");
+
 const showGridButton = document.querySelector("button#show-grid");
 const clearCanvasButton = document.querySelector("button#clear-canvas");
 
-// Other variables
-let currentTool = DEFAULT_TOOL;
-let currentCanvasSize = DEFAULT_CANVAS_SIZE;
-let gridVisibilityState = DEFAULT_GRID_VISIBILITY;
 
 // First loading settings
 resetCanvas();
 selectTool(currentTool);
+updateCanvasSizeLabel(currentCanvasSize);
 
-console.log(canvas.childElementCount); // Test
 
 // Set Events
 allTools.forEach(tool => {
     tool.addEventListener("click", selectTool);
 });
 
+canvasSizeSlider.addEventListener("onchange", () => console.log("a"));
+
 showGridButton.addEventListener("click", toggleGridVisibility);
-clearCanvasButton.addEventListener("click", resetCanvas);
+// Arrow function to avoid Event Parameter (e)
+clearCanvasButton.addEventListener("click", () => resetCanvas());
 
 // Functions
 
-function resetCanvas() {
+function resetCanvas(newCanvasSize = currentCanvasSize) {
     clearCanvas();
-    setCanvasSize(currentCanvasSize); // Change to "actual canvas size"
+    setCanvasSize(newCanvasSize);
     setGridVisibility(gridVisibilityState);
 }
 
 function setCanvasSize(newSize) {
-
     let newPixel = null;
 
     canvas.style.gridTemplateColumns = `repeat(${newSize}, 1fr)`;
@@ -92,6 +93,11 @@ function setGridVisibility(state) {
 // Function is defined just for showGridButton
 function toggleGridVisibility() {
     setGridVisibility(!gridVisibilityState);
+}
+
+function updateCanvasSizeLabel(newValue) {
+    currentCanvasSize = newValue;
+    canvasSizeLabel.textContent = `${newValue} \u00D7 ${newValue}`;
 }
 
 function setButtonState(button, newState) {
