@@ -128,12 +128,14 @@ function updateColor(newColor) {
     if (newColor.length === 7) {
         currentColor = newColor;
         colorInput.value = newColor;
-        hexColorInput.value = newColor; // Later: Set hex color text to uppercase
+        hexColorInput.value = newColor.toUpperCase();
     } else {
         alert("Invalid color");
         updateColor("#000000");
     }
 }
+
+
 
 function setGridVisibility(state) {
     gridVisibilityState = state;
