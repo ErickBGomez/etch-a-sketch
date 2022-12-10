@@ -33,8 +33,12 @@
             <div id="canvas"></div>
             
             <div class="colors group-background">
-                <input type="color" class="color-input pointer-mouse" value="#000000">
-                <input type="text" class="hex-color-input" value="#000000">
+                <input type="color" id="color-input" name="color-input" class="pointer-mouse"
+                value="#000000"
+                onchange="updateColor(this.value);">
+                <input type="text" id="hex-color-input" name="hex-color-input"
+                value="#000000"
+                onchange="updateColor(this.value);">
                 
                 <div class="color-history-group">
                     <div id="color-history-1" class="pointer-mouse"></div>
@@ -54,10 +58,9 @@
                 </div>
                 <div class="grid-size-slider">
                     <input type="range" min="8" max="64" step="8" id="slider" name="slider" class="pointer-mouse"
+                    value="8"
                     oninput="updateCanvasSizeLabel(this.value);"
-                    onchange="resetCanvas(this.value);"
-                    value="8">
-
+                    onchange="resetCanvas(this.value);">
                 </div>
             </div>
         </main>

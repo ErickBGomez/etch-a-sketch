@@ -13,6 +13,9 @@ const canvas = document.querySelector("div#canvas");
 const canvasSizeLabel = document.querySelector("span.canvas-size-label");
 const canvasSizeSlider = document.querySelector("input#slider");
 
+const colorInput = document.querySelector("input#color-input");
+const hexColorInput = document.querySelector("input#hex-color-input");
+
 const showGridButton = document.querySelector("button#show-grid");
 const clearCanvasButton = document.querySelector("button#clear-canvas");
 
@@ -100,6 +103,19 @@ function useTool(e) {
 
 function usePencilTool(pixel) {
     pixel.style.backgroundColor = currentColor;
+}
+
+// Fix later: Any string can be introduced where, not just hex colors.
+// Possible solution: Regex
+function updateColor(newColor) {
+    if (newColor.length === 7) {
+        currentColor = newColor;
+        colorInput.value = newColor;
+        hexColorInput.value = newColor;
+    } else {
+        alert("Invalid color");
+        updateColor("#000000");
+    }
 }
 
 function setGridVisibility(state) {

@@ -138,7 +138,7 @@ button {
 }
 
 /* Test this compatibility with other browsers */
-.color-input {
+#color-input {
     width: 125px;
     height: 125px;
 
@@ -148,15 +148,15 @@ button {
     border: none;
 }
 
-.color-input::-webkit-color-swatch-wrapper {
+#color-input::-webkit-color-swatch-wrapper {
     padding: 0;
 }
 
-.color-input::-webkit-color-swatch {
+#color-input::-webkit-color-swatch {
     border: none;
 }
 
-.hex-color-input {
+#hex-color-input {
     width: 125px;
     margin: 10px 0;
     padding: 10px;
@@ -174,7 +174,7 @@ button {
     height: 32px;
 }
 
-.color-input:hover {
+#color-input:hover {
     scale: 1.07;
 }
 
