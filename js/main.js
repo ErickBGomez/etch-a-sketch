@@ -1,7 +1,7 @@
 // Variables with default settings
 let currentTool = "pencil";
 let mouseDownOnBody = false; // Flag that helps us to constantly paint several pixels
-let currentColor = "#000000";
+let currentColor = "#3BB0F2";
 let currentCanvasSize = 8;
 let gridVisibilityState = true;
 
@@ -23,6 +23,7 @@ const clearCanvasButton = document.querySelector("button#clear-canvas");
 // First loading settings
 resetCanvas();
 selectTool(currentTool);
+updateColor(currentColor);
 updateCanvasSizeLabel(currentCanvasSize);
 
 
@@ -95,6 +96,10 @@ function useTool(e) {
                 usePencilTool(e.target);
                 break;
             
+            case "rainbow":
+                useRainbowTool(e.target);
+                break;
+            
             default:
                 alert("Invalid tool");
         }
@@ -105,13 +110,25 @@ function usePencilTool(pixel) {
     pixel.style.backgroundColor = currentColor;
 }
 
+function useRainbowTool(pixel) {
+    const randomRed = getRandomInteger(256);
+    const randomGreen = getRandomInteger(256);
+    const randomBlue = getRandomInteger(256);
+
+    pixel.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+}
+
+function getRandomInteger(maxInteger) {
+    return Math.floor(Math.random() * maxInteger);
+}
+
 // Fix later: Any string can be introduced where, not just hex colors.
 // Possible solution: Regex
 function updateColor(newColor) {
     if (newColor.length === 7) {
         currentColor = newColor;
         colorInput.value = newColor;
-        hexColorInput.value = newColor;
+        hexColorInput.value = newColor; // Later: Set hex color text to uppercase
     } else {
         alert("Invalid color");
         updateColor("#000000");
