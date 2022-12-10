@@ -72,6 +72,10 @@ button {
     border: none;
 }
 
+.avoid-text-selection {
+    user-select: none;
+}
+
 /* Painting area */
 
 .painting-group {
@@ -284,6 +288,8 @@ button {
 }
 
 .pixel {
+    /* This property helps to avoid dragging canvas' divs*/
+    user-select: none;
     background-color: white;
 }
 

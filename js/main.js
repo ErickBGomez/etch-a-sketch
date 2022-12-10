@@ -1,5 +1,7 @@
 // Variables with default settings
 let currentTool = "pencil";
+let mouseDown = false; // Flag that helps us to constantly paint several pixels
+let currentColor = "#000000";
 let currentCanvasSize = 8;
 let gridVisibilityState = true;
 
@@ -26,7 +28,10 @@ allTools.forEach(tool => {
     tool.addEventListener("click", selectTool);
 });
 
-canvasSizeSlider.addEventListener("onchange", () => console.log("a"));
+/* This event helps to detect that the user is holding the click down on any
+part of the page. */
+document.body.onmousedown = () => mouseDown = true;
+document.body.onmouseup = () => mouseDown = false;
 
 showGridButton.addEventListener("click", toggleGridVisibility);
 // Arrow function to avoid Event Parameter (e)
@@ -49,6 +54,8 @@ function setCanvasSize(newSize) {
     for (let i = 0; i < newSize**2; i++) {
         newPixel = document.createElement("div");
         newPixel.classList.add("pixel");
+        newPixel.addEventListener("mouseover", useTool);
+        newPixel.addEventListener("click", useTool);
 
         canvas.appendChild(newPixel);
     }
@@ -74,6 +81,25 @@ function selectTool(newTool) {
             currentTool = toolIdSelected;
         }
     });
+}
+
+function useTool(e) {
+    if ((e.type === "click" && !mouseDown) ||
+        (e.type === "mouseover" && mouseDown)) {
+
+        switch (currentTool) {
+            case "pencil":
+                usePencilTool(e.target);
+                break;
+            
+            default:
+                alert("Invalid tool");
+        }
+    }  
+}
+
+function usePencilTool(pixel) {
+    pixel.style.backgroundColor = currentColor;
 }
 
 function setGridVisibility(state) {
