@@ -1,6 +1,6 @@
 // Variables with default settings
 let currentTool = "pencil";
-let mouseDown = false; // Flag that helps us to constantly paint several pixels
+let mouseDownOnBody = false; // Flag that helps us to constantly paint several pixels
 let currentColor = "#000000";
 let currentCanvasSize = 8;
 let gridVisibilityState = true;
@@ -33,8 +33,8 @@ allTools.forEach(tool => {
 
 /* This event helps to detect that the user is holding the click down on any
 part of the page. */
-document.body.onmousedown = () => mouseDown = true;
-document.body.onmouseup = () => mouseDown = false;
+document.body.onmousedown = () => mouseDownOnBody = true;
+document.body.onmouseup = () => mouseDownOnBody = false;
 
 showGridButton.addEventListener("click", toggleGridVisibility);
 // Arrow function to avoid Event Parameter (e)
@@ -58,7 +58,7 @@ function setCanvasSize(newSize) {
         newPixel = document.createElement("div");
         newPixel.classList.add("pixel");
         newPixel.addEventListener("mouseover", useTool);
-        newPixel.addEventListener("click", useTool);
+        newPixel.addEventListener("mousedown", useTool);
 
         canvas.appendChild(newPixel);
     }
@@ -87,8 +87,8 @@ function selectTool(newTool) {
 }
 
 function useTool(e) {
-    if ((e.type === "click" && !mouseDown) ||
-        (e.type === "mouseover" && mouseDown)) {
+    if (e.type === "mousedown" ||                      // Clicking 1 pixel
+       (e.type === "mouseover" && mouseDownOnBody)) {  // Holding click down and hovering several pixels
 
         switch (currentTool) {
             case "pencil":

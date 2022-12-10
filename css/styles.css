@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    /* This property helps to avoid dragging canvas' divs and other texts*/
+    user-select: none;
 }
 
 :root {
@@ -70,10 +72,6 @@ button {
     display: block;
     padding: 0;
     border: none;
-}
-
-.avoid-text-selection {
-    user-select: none;
 }
 
 /* Painting area */
@@ -288,8 +286,6 @@ button {
 }
 
 .pixel {
-    /* This property helps to avoid dragging canvas' divs*/
-    user-select: none;
     background-color: white;
 }
 
