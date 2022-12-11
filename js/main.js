@@ -5,6 +5,9 @@ let currentColor = "#3BB0F2";
 let currentCanvasSize = 8;
 let currentGridVisibilityState = true;
 
+const DEFAULT_WHITE_COLOR = "rgb(255, 255, 255)";
+const DEFAULT_BLACK_COLOR = "#000000";
+
 // Select nodes
 const allTools = document.querySelectorAll("button.tool-button");
 
@@ -107,6 +110,10 @@ function useTool(e) {
                 changePixelColor(e.target, getShadingEffect(e.target.style.backgroundColor));
                 break;
 
+            case "eraser":
+                changePixelColor(e.target, DEFAULT_WHITE_COLOR);
+                break;
+
             default:
                 alert("Invalid tool");
         }
@@ -148,7 +155,7 @@ function updateColor(newColor) {
         hexColorInput.value = newColor.toUpperCase();
     } else {
         alert("Invalid color");
-        updateColor("#000000");
+        updateColor(DEFAULT_BLACK_COLOR);
     }
 }
 
@@ -186,5 +193,5 @@ function getRandomInteger(maxInteger) {
 // Convert "rgb()" color string to an array with the RGB colors separated
 function getRGBColorArray(color) {
     // If color value is empty (""), then apply a default white color
-    return (color || "rgb(255, 255, 255)").slice(4, -1).split(", ");
+    return (color || DEFAULT_WHITE_COLOR).slice(4, -1).split(", ");
 }
