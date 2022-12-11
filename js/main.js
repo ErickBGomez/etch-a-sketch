@@ -114,6 +114,10 @@ function useTool(e) {
                 changePixelColor(e.target, DEFAULT_WHITE_COLOR);
                 break;
 
+            case "color-picker":
+                updateColor(getRGBToHexColor(e.target.style.backgroundColor));
+                break;
+
             default:
                 alert("Invalid tool");
         }
@@ -144,6 +148,10 @@ function getShadingEffect(pixelColor) {
     return `rgb(${pixelRGBColor[0]}, ${pixelRGBColor[1]}, ${pixelRGBColor[2]})`;
 }
 
+function getPixelColor(pixel) {
+    return pixel.style.backgroundColor || DEFAULT_WHITE_COLOR;
+}
+
 // Color function
 
 // Fix later: Any string can be introduced where, not just hex colors.
@@ -153,10 +161,10 @@ function updateColor(newColor) {
         currentColor = newColor;
         colorInput.value = newColor;
         hexColorInput.value = newColor.toUpperCase();
-    } else {
+    } /*else {
         alert("Invalid color");
         updateColor(DEFAULT_BLACK_COLOR);
-    }
+    }*/
 }
 
 // Other options functions
@@ -193,5 +201,29 @@ function getRandomInteger(maxInteger) {
 // Convert "rgb()" color string to an array with the RGB colors separated
 function getRGBColorArray(color) {
     // If color value is empty (""), then apply a default white color
-    return (color || DEFAULT_WHITE_COLOR).slice(4, -1).split(", ");
+    const newArray = (color || DEFAULT_WHITE_COLOR).slice(4, -1).split(", ");
+
+    // Convert strings to integers
+    for (let i = 0; i < newArray.length; i++) {
+        newArray[i] = Number(newArray[i]);
+    }
+
+    return newArray;
+}
+
+function getRGBToHexColor(rgbColor) {
+    const rgbArray = getRGBColorArray(rgbColor);
+    let hexColor = "#";
+
+    for (color of rgbArray) {
+        let savedHexColor = color.toString(16);
+        /* Base-10 numbers less than or equal to 15 return a single character when converted to
+        base-16, but the hex code format expects 2 characters for each color.
+
+        To solve that problem, those converted values will be added a "0" at the beginning */
+        if (savedHexColor.length === 1) savedHexColor = "0" + savedHexColor;  
+        hexColor += savedHexColor;
+    }
+
+    return hexColor;
 }
