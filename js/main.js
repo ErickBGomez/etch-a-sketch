@@ -100,6 +100,10 @@ function useTool(e) {
                 useRainbowTool(e.target);
                 break;
             
+            case "shading":
+                useShadingTool(e.target);
+                break;
+
             default:
                 alert("Invalid tool");
         }
@@ -108,6 +112,8 @@ function useTool(e) {
 
 function usePencilTool(pixel) {
     pixel.style.backgroundColor = currentColor;
+
+    console.log(getRGBColorArray(pixel.style.backgroundColor)); // Test
 }
 
 function useRainbowTool(pixel) {
@@ -122,6 +128,24 @@ function getRandomInteger(maxInteger) {
     return Math.floor(Math.random() * maxInteger);
 }
 
+function useShadingTool(pixel) {
+    const shadingHardness = 20;
+    const pixelRGBColor = getRGBColorArray(pixel.style.backgroundColor);
+
+    // Apply shading effect to each RGB color value
+    for(let i = 0; i < pixelRGBColor.length; i++) {
+        pixelRGBColor[i] -= shadingHardness;
+    }
+
+    pixel.style.backgroundColor = `rgb(${pixelRGBColor[0]}, ${pixelRGBColor[1]}, ${pixelRGBColor[2]})`;
+}
+
+// Convert "rgb()" color string to an array with the RGB colors separated
+function getRGBColorArray(color) {
+    // If color value is empty (""), then apply a default white color
+    return (color || "rgb(255, 255, 255)").slice(4, -1).split(", ");
+}
+
 // Fix later: Any string can be introduced where, not just hex colors.
 // Possible solution: Regex
 function updateColor(newColor) {
@@ -134,8 +158,6 @@ function updateColor(newColor) {
         updateColor("#000000");
     }
 }
-
-
 
 function setGridVisibility(state) {
     gridVisibilityState = state;
