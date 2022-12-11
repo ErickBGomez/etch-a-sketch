@@ -154,32 +154,15 @@ button {
     border: none;
 }
 
+#color-input:hover {
+    scale: 1.07;
+}
+
 #hex-color-input {
     width: 125px;
     margin: 10px 0;
     padding: 10px;
 }
-
-.color-history-group {
-    display: flex;
-    justify-content: space-between;
-}
-
-.color-history-group div {
-    background-color: white;
-
-    width: 32px;
-    height: 32px;
-}
-
-#color-input:hover {
-    scale: 1.07;
-}
-
-.color-history-group div:hover {
-    scale: 1.15;
-}
-
 /* Other options */
 
 .other-options {

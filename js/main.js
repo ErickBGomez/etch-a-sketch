@@ -161,10 +161,10 @@ function updateColor(newColor) {
         currentColor = newColor;
         colorInput.value = newColor;
         hexColorInput.value = newColor.toUpperCase();
-    } /*else {
+    } else {
         alert("Invalid color");
         updateColor(DEFAULT_BLACK_COLOR);
-    }*/
+    }
 }
 
 // Other options functions
