@@ -3,7 +3,7 @@ let currentTool = "pencil";
 let mouseDownOnBody = false; // Flag that helps us to constantly paint several pixels
 let currentColor = "#3BB0F2";
 let currentCanvasSize = 8;
-let gridVisibilityState = true;
+let currentGridVisibilityState = true;
 
 // Select nodes
 const allTools = document.querySelectorAll("button.tool-button");
@@ -21,10 +21,9 @@ const clearCanvasButton = document.querySelector("button#clear-canvas");
 
 
 // First loading settings
-resetCanvas();
+updateCanvas();
 selectTool(currentTool);
 updateColor(currentColor);
-updateCanvasSizeLabel(currentCanvasSize);
 
 
 // Set Events
@@ -39,18 +38,20 @@ document.body.onmouseup = () => mouseDownOnBody = false;
 
 showGridButton.addEventListener("click", toggleGridVisibility);
 // Arrow function to avoid Event Parameter (e)
-clearCanvasButton.addEventListener("click", () => resetCanvas());
+clearCanvasButton.addEventListener("click", () => updateCanvas());
 
-// Functions
+// Canvas Functions
 
-function resetCanvas(newCanvasSize = currentCanvasSize) {
+function updateCanvas(newCanvasSize = currentCanvasSize) {
     clearCanvas();
     setCanvasSize(newCanvasSize);
-    setGridVisibility(gridVisibilityState);
+    setGridVisibility(currentGridVisibilityState);
+    canvasSizeLabel.textContent = `${newCanvasSize} \u00D7 ${newCanvasSize}`;
 }
 
 function setCanvasSize(newSize) {
     let newPixel = null;
+    currentCanvasSize = newSize;
 
     canvas.style.gridTemplateColumns = `repeat(${newSize}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${newSize}, 1fr)`;
@@ -71,6 +72,8 @@ function clearCanvas() {
         canvas.innerHTML = "";
     }
 }
+
+// Tools functions
 
 function selectTool(newTool) {
     // If a PointerEvent (object) is received, save only its ID string
@@ -93,15 +96,15 @@ function useTool(e) {
 
         switch (currentTool) {
             case "pencil":
-                usePencilTool(e.target);
+                changePixelColor(e.target, currentColor);
                 break;
             
             case "rainbow":
-                useRainbowTool(e.target);
+                changePixelColor(e.target, getRainbowEffect());
                 break;
             
             case "shading":
-                useShadingTool(e.target);
+                changePixelColor(e.target, getShadingEffect(e.target.style.backgroundColor));
                 break;
 
             default:
@@ -110,41 +113,31 @@ function useTool(e) {
     }  
 }
 
-function usePencilTool(pixel) {
-    pixel.style.backgroundColor = currentColor;
-
-    console.log(getRGBColorArray(pixel.style.backgroundColor)); // Test
+function changePixelColor(pixel, newColor) {
+    pixel.style.backgroundColor = newColor;
 }
 
-function useRainbowTool(pixel) {
+function getRainbowEffect() {
     const randomRed = getRandomInteger(256);
     const randomGreen = getRandomInteger(256);
     const randomBlue = getRandomInteger(256);
 
-    pixel.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    return `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 }
 
-function getRandomInteger(maxInteger) {
-    return Math.floor(Math.random() * maxInteger);
-}
-
-function useShadingTool(pixel) {
+function getShadingEffect(pixelColor) {
     const shadingHardness = 20;
-    const pixelRGBColor = getRGBColorArray(pixel.style.backgroundColor);
+    const pixelRGBColor = getRGBColorArray(pixelColor);
 
     // Apply shading effect to each RGB color value
     for(let i = 0; i < pixelRGBColor.length; i++) {
         pixelRGBColor[i] -= shadingHardness;
     }
 
-    pixel.style.backgroundColor = `rgb(${pixelRGBColor[0]}, ${pixelRGBColor[1]}, ${pixelRGBColor[2]})`;
+    return `rgb(${pixelRGBColor[0]}, ${pixelRGBColor[1]}, ${pixelRGBColor[2]})`;
 }
 
-// Convert "rgb()" color string to an array with the RGB colors separated
-function getRGBColorArray(color) {
-    // If color value is empty (""), then apply a default white color
-    return (color || "rgb(255, 255, 255)").slice(4, -1).split(", ");
-}
+// Color function
 
 // Fix later: Any string can be introduced where, not just hex colors.
 // Possible solution: Regex
@@ -159,8 +152,10 @@ function updateColor(newColor) {
     }
 }
 
+// Other options functions
+
 function setGridVisibility(state) {
-    gridVisibilityState = state;
+    currentGridVisibilityState = state;
 
     if (state === true) {
         setButtonState(showGridButton, "selected");
@@ -175,18 +170,21 @@ function setGridVisibility(state) {
 
 // Function is defined just for showGridButton
 function toggleGridVisibility() {
-    setGridVisibility(!gridVisibilityState);
+    setGridVisibility(!currentGridVisibilityState);
 }
 
-function updateCanvasSizeLabel(newValue) {
-    currentCanvasSize = newValue;
-    canvasSizeLabel.textContent = `${newValue} \u00D7 ${newValue}`;
-}
+// Other functions
 
 function setButtonState(button, newState) {
     button.dataset.state = newState;
 }
 
-function getButtonState(button) {
-    return button.dataset.state;
+function getRandomInteger(maxInteger) {
+    return Math.floor(Math.random() * maxInteger);
+}
+
+// Convert "rgb()" color string to an array with the RGB colors separated
+function getRGBColorArray(color) {
+    // If color value is empty (""), then apply a default white color
+    return (color || "rgb(255, 255, 255)").slice(4, -1).split(", ");
 }
