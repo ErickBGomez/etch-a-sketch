@@ -11,13 +11,13 @@
     <script src="js/main.js" defer></script>
 
 
-    <title>Etch-A-Sketch</title>
+    <title>Pixel Canvas | Erick B. Gómez</title>
 </head>
 
 <body>
     <div class="sections">
         <header class="header-group">
-            <h1 class="header-title">Etch-A-Sketch</h1>
+            <h1 class="header-title"><span class="pixel-header-title">PIXEL</span> CANVAS</h1>
         </header>
 
         <main class="painting-group">            
@@ -36,9 +36,7 @@
                 <input type="color" id="color-input" name="color-input" class="pointer-mouse"
                 value="#000000"
                 oninput="updateColor(this.value);">
-                <input type="text" id="hex-color-input" name="hex-color-input"
-                value="#000000"
-                oninput="updateColor(this.value);">
+                <div type="text" class="hex-color-label"></div>
             </div>
             
             <div class="other-options">

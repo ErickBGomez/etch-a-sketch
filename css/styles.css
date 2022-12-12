@@ -16,7 +16,6 @@
 
     --main-background: #2B2B2B;
     --group-background: #3E3E3E;
-    --input-background: #242424;
     --pixel-border-accent: #b8b8b8;
 }
 
@@ -40,22 +39,23 @@ body {
 }
 
 h1 {
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 0;
-    font-size: 1.75em;
+    font-size: 2.25em;
+}
+
+.pixel-header-title {
+    color: var(--primary-accent);
+    transition: 100ms;
+}
+
+.pixel-header-title:hover {
+    color: var(--hover-accent);
+    transition: 100ms;
 }
 
 p {
     margin: 0;
-    font-size: 1em;
-}
-
-input[type="text"] {
-    background-color: var(--input-background);
-    border: none;
-    border-radius: 7px;
-    color: var(--white-accent);
-    text-align: center;
     font-size: 1em;
 }
 
@@ -119,6 +119,7 @@ button {
 
 .tool-button[data-state="selected"] {
     background-color: var(--primary-accent);
+    cursor: auto;
 }
 
 .tool-button:not(:last-of-type) {
@@ -158,10 +159,11 @@ button {
     scale: 1.07;
 }
 
-#hex-color-input {
+.hex-color-label {
     width: 125px;
-    margin: 10px 0;
-    padding: 10px;
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 1em;
 }
 /* Other options */
 
@@ -284,4 +286,12 @@ button {
     color: var(--primary-accent);
     text-decoration: none;
     font-weight: 700;
+
+    transition: 100ms;
+}
+
+.author-link:hover {
+    color: var(--hover-accent);
+
+    transition: 100ms;
 }
