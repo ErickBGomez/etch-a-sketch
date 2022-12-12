@@ -110,6 +110,19 @@ button {
     border-radius: 10px;
 }
 
+.tool-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url("../img/shading-icon.svg");
+
+    filter: brightness(10%);
+}
+
+.tool-button[data-state="selected"] .tool-icon {
+    filter: brightness(90%);
+}
+
 /* Change this later to "Selected button" */
 .tool-button:hover,
 .tool-button[data-state="selected"] {

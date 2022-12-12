@@ -23,11 +23,26 @@
         <main class="painting-group">            
             <div class="tools group-background">
                 <!-- Change button icons to SVGs -->
-                <button id="pencil" class="tool-button pointer-mouse" data-state="unselected">PENCIL</button>
-                <button id="rainbow" class="tool-button pointer-mouse" data-state="unselected">RAINBOW</button>
-                <button id="shading" class="tool-button pointer-mouse" data-state="unselected">SHADING</button>
-                <button id="eraser" class="tool-button pointer-mouse" data-state="unselected">ERASER</button>
-                <button id="color-picker" class="tool-button pointer-mouse" data-state="unselected">COLOR PICKER</button>
+                <button id="pencil" class="tool-button pointer-mouse" data-state="unselected"
+                onclick="selectTool(this.id)">
+                    <span class="tool-icon"></span>
+                </button>
+                <button id="rainbow" class="tool-button pointer-mouse" data-state="unselected"
+                onclick="selectTool(this.id)">
+                    <span class="tool-icon"></span>
+                </button>
+                <button id="shading" class="tool-button pointer-mouse" data-state="unselected"
+                onclick="selectTool(this.id)">
+                    <span class="tool-icon"></span>
+                </button>
+                <button id="eraser" class="tool-button pointer-mouse" data-state="unselected"
+                onclick="selectTool(this.id)">
+                    <span class="tool-icon"></span>
+                </button>
+                <button id="color-picker" class="tool-button pointer-mouse" data-state="unselected"
+                onclick="selectTool(this.id)">
+                    <span class="tool-icon"></span>
+                </button>
             </div>
 
             <div id="canvas"></div>

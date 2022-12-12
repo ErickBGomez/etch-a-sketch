@@ -30,9 +30,6 @@ updateColor(currentColor);
 
 
 // Set Events
-allTools.forEach(tool => {
-    tool.addEventListener("click", selectTool);
-});
 
 /* This event helps to detect that the user is holding the click down on any
 part of the page. */
@@ -79,16 +76,12 @@ function clearCanvas() {
 // Tools functions
 
 function selectTool(newTool) {
-    // If a PointerEvent (object) is received, save only its ID string
-    // Otherwise, save just the string
-    const toolIdSelected = (typeof newTool === "object") ? newTool.target.id : newTool;
-
     allTools.forEach(tool => {
         setButtonState(tool, "unselected");
 
-        if (tool.id === toolIdSelected) {
+        if (tool.id === newTool) {
             setButtonState(tool, "selected");
-            currentTool = toolIdSelected;
+            currentTool = newTool;
         }
     });
 }
