@@ -103,6 +103,9 @@ button {
     width: 75px;
     height: 75px;
 
+    font-weight: 600;
+    font-size: 0.7em;
+
     background-color: var(--white-accent);
     border-radius: 10px;
 }
@@ -118,6 +121,7 @@ button {
 }
 
 .tool-button[data-state="selected"] {
+    color: var(--white-accent);
     background-color: var(--primary-accent);
     cursor: auto;
 }
@@ -177,6 +181,9 @@ button {
 .option-button {
     width: 50px;
     height: 50px;
+
+    font-weight: 500;
+    
 
     margin: 0 auto;
 
