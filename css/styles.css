@@ -11,8 +11,6 @@
 
     --primary-accent: #3BB0F2;
     --hover-accent: #98d6fa;
-    --danger-accent: #f12222;
-    --hover-danger-accent: #f08686;
 
     --main-background: #2B2B2B;
     --group-background: #3E3E3E;
@@ -59,11 +57,12 @@ p {
     font-size: 1em;
 }
 
-.pointer-mouse {
+.hover-transition {
+    cursor: auto;
     transition: 200ms;
 }
 
-.pointer-mouse:hover {
+.hover-transition:hover {
     cursor: pointer;
     transition: 200ms;
 }
@@ -102,13 +101,10 @@ button {
 .tool-button {
     width: 75px;
     height: 75px;
-
-    font-weight: 600;
-    font-size: 0.7em;
-
-    background-color: var(--white-accent);
     border-radius: 10px;
 }
+
+/* Tool icons */
 
 .tool-icon {
     display: inline-block;
@@ -210,44 +206,59 @@ button {
 }
 
 .option-button {
-    width: 50px;
-    height: 50px;
-
-    font-weight: 500;
-    
+    width: 45px;
+    height: 45px;
 
     margin: 0 auto;
-
-    color: var(--white-accent);
-    background: none;
 }
 
 .option-button:hover,
 .option-button[data-state="selected"] {
     scale: 1.2;
-}
-
-#show-grid.option-button:hover {
-    color: var(--hover-accent);
-}
-
-#show-grid.option-button[data-state="selected"] {
-    color: var(--primary-accent);
+    transition: 200ms;
 }
 
 #clear-canvas.option-button:hover {
-    color: var(--hover-danger-accent);
+    transition: 200ms;
 }
 
 #clear-canvas.option-button:active {
-    color: var(--danger-accent);
     scale: 1.5;
-    transition: 10ms;
+    transition: 15ms;
 }
 
 .option-button:not(:last-of-type) {
     margin-bottom: 25px;
 }
+
+/* Option icons */
+
+#show-grid.option-icon {
+    background: url("../img/show-grid-icon.svg");
+}
+
+#show-grid.option-icon:hover {
+    background: url("../img/show-grid-hover-icon.svg");
+}
+
+#show-grid.option-icon[data-state="selected"] {
+    background: url("../img/show-grid-selected-icon.svg");
+}
+
+#clear-canvas.option-icon {
+    background: url("../img/clear-canvas-icon.svg");
+    filter: grayscale() brightness(220%);
+}
+
+#clear-canvas.option-icon:hover {
+    filter: brightness(175%);
+}
+
+#clear-canvas.option-icon:active {
+    filter: none;
+}
+
+
 
 /* Grid size slider group */
 

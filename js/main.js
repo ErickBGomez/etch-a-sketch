@@ -3,7 +3,7 @@ let currentTool = "pencil";
 let mouseDownOnBody = false; // Flag that helps us to constantly paint several pixels
 let currentColor = "#3BB0F2";
 let currentCanvasSize = 8;
-let currentGridVisibilityState = true;
+let currentGridVisibilityState = false;
 
 const DEFAULT_WHITE_COLOR = "rgb(255, 255, 255)";
 const DEFAULT_BLACK_COLOR = "#000000";
@@ -35,10 +35,6 @@ updateColor(currentColor);
 part of the page. */
 document.body.onmousedown = () => mouseDownOnBody = true;
 document.body.onmouseup = () => mouseDownOnBody = false;
-
-showGridButton.addEventListener("click", toggleGridVisibility);
-// Arrow function to avoid Event Parameter (e)
-clearCanvasButton.addEventListener("click", () => updateCanvas());
 
 // Canvas Functions
 

@@ -23,23 +23,23 @@
         <main class="painting-group">            
             <div class="tools group-background">
                 <!-- Change button icons to SVGs -->
-                <button id="pencil" class="tool-button pointer-mouse" data-state="unselected"
+                <button id="pencil" class="tool-button hover-transition" data-state="unselected"
                 onclick="selectTool(this.id)">
                     <span class="tool-icon"></span>
                 </button>
-                <button id="rainbow" class="tool-button pointer-mouse" data-state="unselected"
+                <button id="rainbow" class="tool-button hover-transition" data-state="unselected"
                 onclick="selectTool(this.id)">
                     <span class="tool-icon"></span>
                 </button>
-                <button id="shading" class="tool-button pointer-mouse" data-state="unselected"
+                <button id="shading" class="tool-button hover-transition" data-state="unselected"
                 onclick="selectTool(this.id)">
                     <span class="tool-icon"></span>
                 </button>
-                <button id="eraser" class="tool-button pointer-mouse" data-state="unselected"
+                <button id="eraser" class="tool-button hover-transition" data-state="unselected"
                 onclick="selectTool(this.id)">
                     <span class="tool-icon"></span>
                 </button>
-                <button id="color-picker" class="tool-button pointer-mouse" data-state="unselected"
+                <button id="color-picker" class="tool-button hover-transition" data-state="unselected"
                 onclick="selectTool(this.id)">
                     <span class="tool-icon"></span>
                 </button>
@@ -48,15 +48,17 @@
             <div id="canvas"></div>
             
             <div class="colors group-background">
-                <input type="color" id="color-input" name="color-input" class="pointer-mouse"
+                <input type="color" id="color-input" name="color-input" class="hover-transition"
                 value="#000000"
                 oninput="updateColor(this.value);">
                 <div type="text" class="hex-color-label"></div>
             </div>
             
             <div class="other-options">
-                <button id="show-grid" class="option-button pointer-mouse" data-state="unselected">SHOW GRID</button>
-                <button id="clear-canvas" class="option-button pointer-mouse">CLEAR CANVAS</button>
+                <button id="show-grid" class="option-button option-icon hover-transition" data-state="unselected"
+                onclick="toggleGridVisibility()"></button>
+                <button id="clear-canvas" class="option-button option-icon hover-transition"
+                onclick="updateCanvas()"></button>
             </div>
     
             <div class="grid-size">
@@ -64,7 +66,7 @@
                     <span class="canvas-size-label"># &times; #</span>
                 </div>
                 <div class="grid-size-slider">
-                    <input type="range" min="8" max="64" step="8" id="slider" name="slider" class="pointer-mouse"
+                    <input type="range" min="8" max="64" step="8" id="slider" name="slider" class="hover-transition"
                     value="8"
                     oninput="updateCanvas(this.value);">
                 </div>
