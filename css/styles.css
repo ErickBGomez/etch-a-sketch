@@ -202,7 +202,7 @@ button {
     grid-column: 3;
     grid-row: 2;
 
-    align-self: start;
+    align-self: center;
 }
 
 .option-button {
@@ -228,7 +228,7 @@ button {
 }
 
 .option-button:not(:last-of-type) {
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 /* Option icons */
@@ -251,11 +251,11 @@ button {
 }
 
 #clear-canvas.option-icon:hover {
-    filter: brightness(175%);
+    filter: none;
 }
 
 #clear-canvas.option-icon:active {
-    filter: none;
+    filter: contrast(550%);
 }
 
 
