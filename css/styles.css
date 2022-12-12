@@ -114,13 +114,31 @@ button {
     display: inline-block;
     width: 32px;
     height: 32px;
-    background: url("../img/shading-icon.svg");
-
     filter: brightness(10%);
 }
 
 .tool-button[data-state="selected"] .tool-icon {
-    filter: brightness(90%);
+    filter: brightness(95%);
+}
+
+#pencil .tool-icon {
+    background: url("../img/pencil-icon.svg");
+}
+
+#rainbow .tool-icon {
+    background: url("../img/pencil-icon.svg");
+}
+
+#shading .tool-icon {
+    background: url("../img/shading-icon.svg");
+}
+
+#eraser .tool-icon {
+    background: url("../img/eraser-icon.svg");
+}
+
+#color-picker .tool-icon {
+    background: url("../img/color-picker-icon.svg");
 }
 
 /* Change this later to "Selected button" */
