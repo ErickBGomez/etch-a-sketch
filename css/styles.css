@@ -122,7 +122,12 @@ button {
 }
 
 #rainbow .tool-icon {
-    background: url("../img/pencil-icon.svg");
+    filter: none;
+    background: url("../img/rainbow-icon.svg");
+}
+
+#rainbow[data-state="selected"] .tool-icon {
+    background: url("../img/rainbow-selected-icon.svg");
 }
 
 #shading .tool-icon {
