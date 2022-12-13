@@ -36,20 +36,13 @@ body {
     align-items: center;
 }
 
-h1 {
-    margin-top: 40px;
-    margin-bottom: 0;
-    font-size: 2.25em;
-}
+.header-title {
+    margin: 0 auto;
+    margin-top: 20px;
 
-.pixel-header-title {
-    color: var(--primary-accent);
-    transition: 100ms;
-}
-
-.pixel-header-title:hover {
-    color: var(--hover-accent);
-    transition: 100ms;
+    width: 410px;
+    height: 120px;
+    background: url("../img/logos/pixel-canvas-logo.svg");
 }
 
 p {
@@ -118,28 +111,28 @@ button {
 }
 
 #pencil .tool-icon {
-    background: url("../img/pencil-icon.svg");
+    background: url("../img/button-icons/pencil-icon.svg");
 }
 
 #rainbow .tool-icon {
     filter: none;
-    background: url("../img/rainbow-icon.svg");
+    background: url("../img/button-icons/rainbow-icon.svg");
 }
 
 #rainbow[data-state="selected"] .tool-icon {
-    background: url("../img/rainbow-selected-icon.svg");
+    background: url("../img/button-icons/rainbow-selected-icon.svg");
 }
 
 #shading .tool-icon {
-    background: url("../img/shading-icon.svg");
+    background: url("../img/button-icons/shading-icon.svg");
 }
 
 #eraser .tool-icon {
-    background: url("../img/eraser-icon.svg");
+    background: url("../img/button-icons/eraser-icon.svg");
 }
 
 #color-picker .tool-icon {
-    background: url("../img/color-picker-icon.svg");
+    background: url("../img/button-icons/color-picker-icon.svg");
 }
 
 /* Change this later to "Selected button" */
@@ -174,8 +167,8 @@ button {
 
 /* Test this compatibility with other browsers */
 #color-input {
-    width: 125px;
-    height: 125px;
+    width: 75px;
+    height: 75px;
 
     background-color: rgba(0,0,0,0);
     -webkit-appearance: none;
@@ -196,10 +189,9 @@ button {
 }
 
 .hex-color-label {
-    width: 125px;
     margin-top: 12px;
-    font-weight: 400;
-    font-size: 1em;
+    font-weight: 500;
+    font-size: 0.8em;
 }
 /* Other options */
 
@@ -239,19 +231,19 @@ button {
 /* Option icons */
 
 #show-grid.option-icon {
-    background: url("../img/show-grid-icon.svg");
+    background: url("../img/button-icons/show-grid-icon.svg");
 }
 
 #show-grid.option-icon:hover {
-    background: url("../img/show-grid-hover-icon.svg");
+    background: url("../img/button-icons/show-grid-hover-icon.svg");
 }
 
 #show-grid.option-icon[data-state="selected"] {
-    background: url("../img/show-grid-selected-icon.svg");
+    background: url("../img/button-icons/show-grid-selected-icon.svg");
 }
 
 #clear-canvas.option-icon {
-    background: url("../img/clear-canvas-icon.svg");
+    background: url("../img/button-icons/clear-canvas-icon.svg");
     filter: grayscale() brightness(220%);
 }
 
