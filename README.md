@@ -36,6 +36,7 @@ In addition, other skills not related to the course have been applied in this pr
 - JavaScript Events
 - Transitions
 - CSS Filters
+- CSS Grid Layout
 
 # About The Odin Project
 **The Odin Project's Assignment:** Etch-A-Sketch.
