@@ -137,10 +137,6 @@ function getShadingEffect(pixelColor) {
     return `rgb(${pixelRGBColor[0]}, ${pixelRGBColor[1]}, ${pixelRGBColor[2]})`;
 }
 
-function getPixelColor(pixel) {
-    return pixel.style.backgroundColor || DEFAULT_WHITE_COLOR;
-}
-
 // Color function
 
 // Fix later: Any string can be introduced where, not just hex colors.
