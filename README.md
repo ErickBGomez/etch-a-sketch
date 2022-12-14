@@ -16,8 +16,8 @@ Create the pixel arts you wish in your preferred browser with PIXEL CANVAS! You 
 <br>
 
 <p align="center">
-  <a href="https://erickbgomez.github.io/etch-a-sketch/">
-    [OPEN CANVAS]
+  <a href="https://erickbgomez.github.io/etch-a-sketch/" target="_blank">
+    <img src="https://user-images.githubusercontent.com/90425287/207485560-80d7af64-c9e6-4a9d-8e81-94ade0866e1f.png" width="250">
   </a>
 </p>
 
@@ -27,6 +27,14 @@ This project has been done to demonstrate the knowledge of web development acqui
 
 In addition, other skills not related to the course have been applied in this project, such as the use of vectors (.svg files), grid layouts, and color theory. This with the aim of being able to expand my own knowledge and skills about web design.
 
+# New Skiils Applied
+
+- DOM Manipulation
+- NodeList
+- HTML Event Attribute
+- JavaScript Events
+- Transitions
+- CSS Filters
 
 # About The Odin Project
 **The Odin Project's Assignment:** Etch-A-Sketch.
