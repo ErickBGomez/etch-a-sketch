@@ -1,7 +1,7 @@
 # About PIXEL CANVAS Project
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/90425287/207402033-2bf1e6e7-2ce9-47bb-a9c6-bfa5aca29bc4.png"
+  <img src="https://user-images.githubusercontent.com/90425287/207490607-40909797-9f0f-4caf-b151-96e1bc206ebd.png"
 alt="PIXEL CANVAS Title">
 </p>
 
@@ -17,7 +17,8 @@ Create the pixel arts you wish in your preferred browser with PIXEL CANVAS! You 
 
 <p align="center">
   <a href="https://erickbgomez.github.io/etch-a-sketch/" target="_blank">
-    <img src="https://user-images.githubusercontent.com/90425287/207485560-80d7af64-c9e6-4a9d-8e81-94ade0866e1f.png" width="250">
+    <img src="https://user-images.githubusercontent.com/90425287/207485560-80d7af64-c9e6-4a9d-8e81-94ade0866e1f.png"
+    width="250" alt="OPEN CANVAS Button">
   </a>
 </p>
 
