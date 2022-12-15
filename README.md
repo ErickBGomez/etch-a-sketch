@@ -38,7 +38,7 @@ You can look up for more information about Roboto font and how to use in your pr
 
 I'm learning how to create vector graphics, and I found in this project the opportunity to apply my new designing skills!
 
-# New Skiils Applied
+# New Skills Applied
 
 - DOM Manipulation
 - NodeList
