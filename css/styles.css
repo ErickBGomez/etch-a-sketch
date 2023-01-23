@@ -171,16 +171,19 @@ button {
     height: 75px;
 
     background-color: rgba(0,0,0,0);
-    -webkit-appearance: none;
-    appearance: none;
     border: none;
 }
 
-#color-input::-webkit-color-swatch-wrapper {
+#color-input::-webkit-color-swatch-wrapper,
+#color-input::-moz-color-swatch-wrapper {
     padding: 0;
 }
 
 #color-input::-webkit-color-swatch {
+    border: none;
+}
+
+#color-input::-moz-color-swatch {
     border: none;
 }
 
