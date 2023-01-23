@@ -298,13 +298,36 @@ button {
     transition: 200ms;
 }
 
+#slider::-moz-range-thumb {
+    appearance: none;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: none;
+
+    background-color: var(--white-accent);
+
+    transition: 200ms;
+}
+
 #slider::-webkit-slider-thumb:hover {
     scale: 1.2;
     background-color: var(--hover-accent);
     transition: 200ms;
 }
 
+#slider::-moz-range-thumb:hover {
+    scale: 1.2;
+    background-color: var(--hover-accent);
+    transition: 200ms;
+}
+
 #slider::-webkit-slider-thumb:active {
+    background-color: var(--primary-accent);
+}
+
+#slider::-moz-range-thumb:active {
     background-color: var(--primary-accent);
 }
 
